@@ -7,7 +7,7 @@ import InputLoginForm from '@/components/InputLoginForm'
 import Link from 'next/link'
 
 import Image from 'next/image'
-import icon from '@/assets/icone/icon.png'
+import icon from '@/assets/icon.png'
 import img from '@/assets/images/img.png'
 import CircleValidation from '@/assets/CircleValidation'
 
@@ -26,33 +26,28 @@ export default function Home() {
   const router = useRouter()
 
   async function handleLogin() {
-    if (!email) setEmailerr('E-Mail obrigatório.')
-    if (!senha) setSenhaerr('Senha obrigatória.')
-
-    if (!email || !senha) return
-
-    setVerificando(true)
+    setVerificando(true);
 
     try {
       const response = await api.post('/sessions', {
-        email,
-        password: senha,
-      })
+        email: 'Gutemberg3@gmail.com', 
+        password: '123456',
+      });
 
       exibirAlerta({
         tipo: 'sucesso',
         mensagem: 'Sucesso!',
-      })
+      });
 
-      router.push(`/api/auth/callback?token=${response.data.token}`)
+      console.log('Token:', response.data.token);
     } catch (error) {
-      console.log(error)
+      console.log(error);
       exibirAlerta({
         tipo: 'erro',
-        mensagem: 'Erro de credenciais inválidas.',
-      })
+        mensagem: 'Erro ao obter token.',
+      });
     } finally {
-      setVerificando(false)
+      setVerificando(false);
     }
   }
 
