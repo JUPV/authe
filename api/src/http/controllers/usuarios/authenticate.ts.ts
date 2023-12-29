@@ -35,6 +35,10 @@ export async function authenticate(
 
     return reply
       .setCookie('refreshToken', refreshToken, {
+    }).status(200).send(token)
+
+    /* return reply
+      .setCookie('refreshToken', refreshToken, {
         path: '/',
         secure: false, // criptografado via https
         sameSite: 'none', // nao acesivel a outros sites
@@ -43,7 +47,7 @@ export async function authenticate(
       .status(200)
       .send({
         token,
-      })
+      }) */
   } catch (err) {
     throw err
   }

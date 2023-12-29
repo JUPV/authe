@@ -29,17 +29,20 @@ export default function Home() {
     setVerificando(true);
 
     try {
-      const response = await api.post('/sessions', {
+      await api.post('/sessions', {
         email: 'Gutemberg3@gmail.com', 
         password: '123456',
       });
-      
-      document.cookie = `refreshToken=${response.data.token}; max-age=${7 * 24 * 60 * 60}; path=/`;
+      /* console.log('teste 1')
+      console.log(response.headers)
+      console.log('teste 2') */
+      //console.log('teste 3', response.data.token)
+      // document.cookie = `refreshToken=${response.data.token}; max-age=${7 * 24 * 60 * 60}; path=/`;
   
-    exibirAlerta({
+    /* exibirAlerta({
       tipo: 'sucesso',
       mensagem: 'Sucesso!',
-    });
+    }); */
 
 
       exibirAlerta({
@@ -47,7 +50,7 @@ export default function Home() {
         mensagem: 'Sucesso!',
       });
 
-      console.log('Token:', response.data.token);
+      // console.log('Token:', response.data.token);
     } catch (error) {
       console.log(error);
       exibirAlerta({
