@@ -4,6 +4,7 @@ import fastiCookie from '@fastify/cookie'
 import { usuariosRoutes } from './http/controllers/usuarios/routes'
 import { env } from './env'
 import cors from '@fastify/cors'
+import { usuarioautheRoutes } from './http/controllers/authe/routes'
 
 export const app = fastify()
 
@@ -31,6 +32,7 @@ app.register(cors, {
 app.register(fastiCookie)
 
 app.register(usuariosRoutes)
+app.register(usuarioautheRoutes)
 
 app.setErrorHandler((error, _, reply) => {
   if (env.NODE_ENV !== 'production') {
