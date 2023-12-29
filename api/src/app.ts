@@ -20,8 +20,13 @@ app.register(fastifyJwt, {
 
 
 app.register(cors, {
-  origin: true,
+  hook: 'preHandler',
+  credentials: true,
+  allowedHeaders: ['content-type'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+  origin: 'http://localhost:3000', // Substitua pelo domínio real do seu aplicativo Next.js
 })
+
 
 app.register(fastiCookie)
 

@@ -36,9 +36,9 @@ export async function authenticate(
     return reply
       .setCookie('refreshToken', refreshToken, {
         path: '/',
-        secure: true, // criptografado via https
-        sameSite: true, // nao acesivel a outros sites
-        httpOnly: true, // so pode ser acessado pelo beckend
+        secure: false, // criptografado via https
+        sameSite: 'none', // nao acesivel a outros sites
+        httpOnly: false, // so pode ser acessado pelo beckend
       })
       .status(200)
       .send({
