@@ -34,7 +34,7 @@ export default function Home() {
         password: '123456',
       });
       
-      document.cookie = `authToken=${response.data.token}; max-age=${7 * 24 * 60 * 60}; path=/`;
+      document.cookie = `refreshToken=${response.data.token}; max-age=${7 * 24 * 60 * 60}; path=/`;
   
     exibirAlerta({
       tipo: 'sucesso',
