@@ -16,6 +16,8 @@ interface AlertaProps {
   mensagem: string
 }
 
+// document.cookie = authToken=${response.data.token}; max-age=${7 * 24 * 60 * 60}; path=/;
+
 export default function Home() {
   const [alerta, setAlerta] = useState<AlertaProps | null>(null)
   const [email, setEmail] = useState('')
@@ -33,9 +35,9 @@ export default function Home() {
         email: 'Gutemberg3@gmail.com', 
         password: '123456',
       });
+      
 
-    // Save the token in a cookie
-    document.cookie = `authToken=${response.data.token}; max-age=${7 * 24 * 60 * 60}; path=/`;
+  
 
     exibirAlerta({
       tipo: 'sucesso',
