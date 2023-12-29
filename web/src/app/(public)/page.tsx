@@ -36,7 +36,6 @@ export default function Home() {
       
       document.cookie = `authToken=${response.data.token}; max-age=${7 * 24 * 60 * 60}; path=/`;
   
-
     exibirAlerta({
       tipo: 'sucesso',
       mensagem: 'Sucesso!',
