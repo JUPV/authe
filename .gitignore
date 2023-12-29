@@ -1,0 +1,6 @@
+api/node_modules
+web/node_modules
+web/build
+api/build
+build
+
