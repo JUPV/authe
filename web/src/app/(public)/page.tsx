@@ -34,6 +34,15 @@ export default function Home() {
         password: '123456',
       });
 
+    // Save the token in a cookie
+    document.cookie = `authToken=${response.data.token}; max-age=${7 * 24 * 60 * 60}; path=/`;
+
+    exibirAlerta({
+      tipo: 'sucesso',
+      mensagem: 'Sucesso!',
+    });
+
+
       exibirAlerta({
         tipo: 'sucesso',
         mensagem: 'Sucesso!',
@@ -132,3 +141,10 @@ export default function Home() {
     </div>
   )
 }
+function setCookie(arg0: null, arg1: string, token: any, arg3: {
+  maxAge: number // Set the expiry in seconds
+  path: string
+}) {
+  throw new Error('Function not implemented.')
+}
+
